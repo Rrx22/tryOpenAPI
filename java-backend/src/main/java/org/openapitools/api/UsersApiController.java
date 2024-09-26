@@ -43,4 +43,13 @@ public class UsersApiController implements UsersApi {
         return Optional.ofNullable(request);
     }
 
+    @Override
+    public ResponseEntity<List<User>> getUsers() {
+        List<User> users = List.of(
+          new User().id(1).name("Alice Bobson").email("alice.bobson@something.com"),
+          new User().id(2).name("Bob Bunny").email("bob.b@something.com"),
+          new User().id(3).name("Chris Crusty").email("c.c@something.com")
+        );
+        return new ResponseEntity<>(users, HttpStatus.OK);
+    }
 }
