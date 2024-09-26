@@ -1,3 +1,4 @@
+org\openapitools\configuration\WebConfig.class
 org\openapitools\api\UsersApiController.class
 org\openapitools\OpenApiGeneratorApplication.class
 org\openapitools\api\ApiUtil.class
