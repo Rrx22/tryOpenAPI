@@ -1,0 +1,61 @@
+openapi: 3.0.0
+info:
+  description: A sample API to demonstrate OpenAPI
+  title: Sample API
+  version: 1.0.0
+servers:
+- url: http://localhost:8080/api
+paths:
+  /users:
+    get:
+      operationId: getUsers
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/User'
+                type: array
+          description: A list of users
+      summary: Get all users
+      x-accepts:
+      - application/json
+    post:
+      operationId: createUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        description: New user details
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: User created
+      summary: Create a new user
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+components:
+  schemas:
+    User:
+      example:
+        name: John Doe
+        id: 1
+        email: john@example.com
+      properties:
+        id:
+          example: 1
+          type: integer
+        name:
+          example: John Doe
+          type: string
+        email:
+          example: john@example.com
+          type: string
+      type: object
